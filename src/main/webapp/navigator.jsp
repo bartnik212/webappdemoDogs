@@ -9,4 +9,7 @@
     <li>
         <a href="${pageContext.request.contextPath}/student/form">Student form</a>
     </li>
+    <li>
+        <a href="${pageContext.request.contextPath}/student">Student list</a>
+    </li>
 </ul>
