@@ -6,12 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Student Form</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/" method="get">
+<jsp:include page="navigator.jsp"/>
+
+<form action="${pageContext.request.contextPath}/student/form" method="post">
     <%--first name input type text--%>
         <label for="inputName">First name:</label> <input id="inputName" type="text" name="firstNameValue"><br/>
     <%--last name input type text--%>

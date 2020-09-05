@@ -20,6 +20,7 @@
     </style>
 </head>
 <body>
+<jsp:include page="navigator.jsp"/>
 
 <form action="${pageContext.request.contextPath}/" method="get">
     <label for="colInput">Ilość kolumn:</label> <input id="colInput" type="number" min="1" step="1" name="colNumber">
