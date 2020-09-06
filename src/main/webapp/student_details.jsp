@@ -88,7 +88,7 @@
                             ${ocena.datetimeCreated}
                     </div>
                     <div class="grade-table-cell">
-
+                        <a href="${pageContext.request.contextPath}/grade/delete?id=${ocena.id}">Delete</a>
                     </div>
                 </div>
             </c:forEach>
