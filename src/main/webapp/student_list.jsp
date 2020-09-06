@@ -11,13 +11,67 @@
 <html>
 <head>
     <title>Student List</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
 <jsp:include page="navigator.jsp"/>
-
-<c:forEach items="${requestScope.jakastamsobie_lista}" var="studencik">
-    <c:out value="${studencik.firstName}"/>
-</c:forEach>
+<h1>Student List:</h1>
+<div class="table">
+    <div class="header-row">
+        <div class="header-cell">
+            Id
+        </div>
+        <div class="header-cell">
+            First name
+        </div>
+        <div class="header-cell">
+            Last name
+        </div>
+        <div class="header-cell">
+            Birth date
+        </div>
+        <div class="header-cell">
+            Age
+        </div>
+        <div class="header-cell">
+            Is special
+        </div>
+        <div class="header-cell">
+            ECTS
+        </div>
+        <div class="header-cell actions-cell">
+            Actions
+        </div>
+    </div>
+    <c:forEach items="${requestScope.jakastamsobie_lista}" var="studencik">
+        <div class="student-row">
+            <div class="student-cell">
+                <c:out value="${studencik.id}"/>
+            </div>
+            <div class="student-cell">
+                <c:out value="${studencik.firstName}"/>
+            </div>
+            <div class="student-cell">
+                <c:out value="${studencik.lastName}"/>
+            </div>
+            <div class="student-cell">
+                <c:out value="${studencik.birthDate}"/>
+            </div>
+            <div class="student-cell">
+                <c:out value="${studencik.age}"/>
+            </div>
+            <div class="student-cell">
+                <c:out value="${studencik.special}"/>
+            </div>
+            <div class="student-cell">
+                <c:out value="${studencik.ects}"/>
+            </div>
+            <div class="student-cell actions-cell">
+                Wabalubadubdub
+            </div>
+        </div>
+    </c:forEach>
+</div>
 
 </body>
 </html>

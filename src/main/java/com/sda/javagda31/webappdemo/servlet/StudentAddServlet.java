@@ -24,11 +24,11 @@ public class StudentAddServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Student student = Student.builder()
-                .firstName(req.getParameter("firstNameValue"))
-                .lastName(req.getParameter("lastNameValue"))
                 .birthDate(LocalDate.parse(req.getParameter("birthDateValue")))
                 .special(req.getParameter("specialValue") != null && req.getParameter("specialValue").equals("on"))
                 .ects(Double.parseDouble(req.getParameter("ectsValue")))
+                .lastName(req.getParameter("lastNameValue"))
+                .firstName(req.getParameter("firstNameValue"))
                 .build();
 
         studentEntityDao.saveOrUpdate(student);
