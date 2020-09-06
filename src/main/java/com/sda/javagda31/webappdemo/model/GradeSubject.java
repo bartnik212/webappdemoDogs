@@ -19,4 +19,5 @@ public enum GradeSubject {
     public String getName() {
         return name;
     }
+
 }
