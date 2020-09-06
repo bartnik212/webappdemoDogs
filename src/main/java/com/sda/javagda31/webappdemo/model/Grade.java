@@ -2,8 +2,10 @@ package com.sda.javagda31.webappdemo.model;
 
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -20,7 +22,10 @@ public class Grade {
     @Enumerated(value = EnumType.STRING)
     private GradeSubject subject;
 
-    @ManyToOne()
+    @CreationTimestamp // now()
+    private LocalDateTime datetimeCreated;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Student student;

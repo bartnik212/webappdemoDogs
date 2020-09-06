@@ -73,7 +73,7 @@
                 <c:out value="${studencik.ects}"/>
             </div>
             <div class="student-cell actions-cell">
-                Wabalubadubdub
+                <a href="${pageContext.request.contextPath}/student/details?id=${studencik.id}">Details</a>
             </div>
         </div>
     </c:forEach>
