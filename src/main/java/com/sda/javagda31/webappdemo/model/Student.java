@@ -1,6 +1,7 @@
 package com.sda.javagda31.webappdemo.model;
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
@@ -31,7 +32,8 @@ public class Student {
     @Formula("(SELECT AVG(g.value) from Grade g where g.student_id=id)")
     private Double average;
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Cascade(value = org.hibernate.annotations.CascadeType.REMOVE)
     @EqualsAndHashCode.Exclude
     private Set<Grade> grades;
 }

@@ -74,6 +74,7 @@
             </div>
             <div class="student-cell actions-cell">
                 <a href="${pageContext.request.contextPath}/student/details?id=${studencik.id}">Details</a>
+                <a href="${pageContext.request.contextPath}/student/delete?id=${studencik.id}">Delete</a>
             </div>
         </div>
     </c:forEach>
