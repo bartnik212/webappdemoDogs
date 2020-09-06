@@ -17,17 +17,25 @@
 
 <form action="${pageContext.request.contextPath}/grade/form" method="post">
     <%--first name input type text--%>
-    <label for="student">Student:</label>
-    <select id="student" name="studentIdValue">
-        <c:forEach items="${requestScope.all_students}" var="student">
-            <option value="${student.id}">
-                <c:out value="${student.firstName} ${student.lastName}"/>
-            </option>
-        </c:forEach>
-    </select>
-    <br/>
+    <c:choose>
+        <c:when test="${requestScope.studentId ==null}">
+            <label for="student">Student:</label>
+            <select id="student" name="studentIdValue">
+                <c:forEach items="${requestScope.all_students}" var="student">
+                    <option value="${student.id}">
+                        <c:out value="${student.firstName} ${student.lastName}"/>
+                    </option>
+                </c:forEach>
+            </select>
+            <br/>
+        </c:when>
+        <c:otherwise>
+            <input type="number" value="${requestScope.studentId}" name="studentIdValue" hidden>
+        </c:otherwise>
+    </c:choose>
     <%--last name input type text--%>
-    <label for="gradeValueInput">Grade value:</label> <input id="gradeValueInput" type="number" min="2" max="6" step="0.5" name="gradeValue"><br/>
+    <label for="gradeValueInput">Grade value:</label> <input id="gradeValueInput" type="number" min="2" max="6"
+                                                             step="0.5" name="gradeValue"><br/>
     <%--birth date input type date--%>
     <label for="subject">Subject:</label>
     <select id="subject" name="subjectValue">

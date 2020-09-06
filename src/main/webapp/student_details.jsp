@@ -52,6 +52,12 @@
             <div class="details-label">Is special:</div>
             <div class="detail">${requestScope.student.special}</div>
         </div>
+        <div class="details-param">
+            <div class="details-label"></div>
+            <div class="detail">
+                <a href="${pageContext.request.contextPath}/grade/form?studentId=${requestScope.student.id}">Add grade...</a>
+            </div>
+        </div>
     </div>
     <div class="details-section">
         <h2>Oceny studenta:</h2>

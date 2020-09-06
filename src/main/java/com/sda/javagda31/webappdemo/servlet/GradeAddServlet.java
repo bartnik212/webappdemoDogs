@@ -22,6 +22,11 @@ public class GradeAddServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String studentIdString = req.getParameter("studentId");
+        if (studentIdString != null) {
+            req.setAttribute("studentId", studentIdString);
+        }
+
         List<Student> studentList = studentEntityDao.findAll(Student.class);
         req.setAttribute("all_students", studentList);
 
@@ -35,7 +40,7 @@ public class GradeAddServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long studentId = Long.valueOf(req.getParameter("studentIdValue"));
         Optional<Student> studentOptional = studentEntityDao.findById(studentId, Student.class);
-        if(studentOptional.isPresent()) {
+        if (studentOptional.isPresent()) {
             Student student = studentOptional.get();
 
             Grade grade = Grade.builder()
@@ -46,6 +51,6 @@ public class GradeAddServlet extends HttpServlet {
 
             gradeEntityDao.saveOrUpdate(grade);
         }
-        resp.sendRedirect(req.getContextPath() + "/student");
+        resp.sendRedirect(req.getContextPath() + "/student/details?id=" + studentId);
     }
 }
