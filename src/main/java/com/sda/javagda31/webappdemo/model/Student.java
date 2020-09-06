@@ -1,19 +1,14 @@
 package com.sda.javagda31.webappdemo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Formula;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
-@Data
+@Data // g s ts eqhs
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,10 +22,16 @@ public class Student {
     private LocalDate birthDate;
 
     @Formula("(year(now())-year(birthDate))")
-    private int age;
+    private Integer age;
 
     private boolean special;
 
     private double ects;
 
+    @Formula("(SELECT AVG(g.value) from Grade g where g.student_id=id)")
+    private Double average;
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+    @EqualsAndHashCode.Exclude
+    private Set<Grade> grades;
 }

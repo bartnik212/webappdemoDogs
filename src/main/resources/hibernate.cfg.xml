@@ -21,5 +21,6 @@
         <property name="show_sql">true</property>
 
         <mapping class="com.sda.javagda31.webappdemo.model.Student"/>
+        <mapping class="com.sda.javagda31.webappdemo.model.Grade"/>
     </session-factory>
 </hibernate-configuration>

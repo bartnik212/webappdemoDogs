@@ -14,7 +14,7 @@
 
 .student-cell{
     display: flex;
-    width: 11%;
+    width: 10%;
 }
 .header-row{
     border: 2px solid #000;
@@ -27,10 +27,10 @@
 .header-cell{
     background-color: lightgray;
     display: flex;
-    width: 11%;
+    width: 10%;
 }
 .actions-cell{
     display: flex;
     background-color: darkgrey;
-    width: 23%;
+    width: 20%;
 }

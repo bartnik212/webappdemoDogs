@@ -37,6 +37,9 @@
             Is special
         </div>
         <div class="header-cell">
+            Average
+        </div>
+        <div class="header-cell">
             ECTS
         </div>
         <div class="header-cell actions-cell">
@@ -62,6 +65,9 @@
             </div>
             <div class="student-cell">
                 <c:out value="${studencik.special}"/>
+            </div>
+            <div class="student-cell">
+                <c:out value="${studencik.average}"/>
             </div>
             <div class="student-cell">
                 <c:out value="${studencik.ects}"/>
